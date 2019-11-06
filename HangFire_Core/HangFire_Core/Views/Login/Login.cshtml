@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="bootstrap material admin template">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Login | Vlot Admin</title>
+
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300%7CRaleway:400,300%7CRoboto:400,700,300%7CLato' rel='stylesheet' type='text/css' />
+    <!-- Global plugin CSS -->
+    <link rel="stylesheet" href="~/assets/bootstrap.min.css" />
+    <!--  Global Template CSS -->
+    <link rel="stylesheet" href="~/assets/style.css" />
+    <link href="~/assets/form.css" rel="stylesheet" />
+    <link href="~/assets/validation.css" rel="stylesheet" />
+   
+</head>
+<body class="login-form page-login-image">
+    <div class="main-login-form">
+        <div class="content-login">
+            <div class="login-page">
+                <div class="logo-title">
+                    <!-- Template Logo -->
+                    <img alt="logo" src="http://vl.betwin8.com/images/we/logo.png">
+                </div>
+                <p class="sign-login">Sign in account.</p>
+                <!-- Start Login Form -->
+                <form action="@Url.Action("Login", "Login")" class="form-login" method="post">
+                    @Html.AntiForgeryToken()
+                    @if (!ViewContext.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="input-box">
+                        <div class="left-icon-login btn-info"><i class="icon icon_mail"></i></div>
+                        <div class="textbox-login"><input type="text" name='UserName' class="form-control" placeholder="UserName" /></div>
+                    </div>
+                    <div class="input-box">
+                        <div class="left-icon-login btn-info"><i class="icon icon_lock"></i></div>
+                        <div class="textbox-login"><input type="password" name='Password' class="form-control" placeholder="Password" /></div>
+                    </div>
+                    @*<div class="bottom-login">
+                        <div class="remember-text-login">
+                            <span class="checkbox-custom checkbox-primary">
+                                <input name="RememberMe" type="checkbox" value="true" />
+                                <label for="requiredCheckbox">Remember me</label>
+                            </span>
+                        </div>
+                    </div>*@
+                    <div class="form-group submit">
+                        <button type="submit" class="btn btn-info btn-sign waves-effect waves-dark">Sign In</button>
+                    </div>
+                </form>
+                <!-- End Login Form -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
